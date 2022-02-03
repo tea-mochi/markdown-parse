@@ -26,8 +26,15 @@ public class MarkdownParse {
             if(markdown.substring(openParen, closeParen).contains(" ")){
                 validLink = false;
             }
+            String returnString = markdown.substring(openParen + 1, closeParen);
+            if(markdown.charAt(openParen + 1) == '\n'){
+                returnString = markdown.substring(openParen + 2, closeParen);
+            }
+            if(markdown.charAt(closeParen - 1) == '\n'){
+                returnString = returnString.substring(0, returnString.length() - 1);
+            }
             if(validLink) {
-                toReturn.add(markdown.substring(openParen + 1, closeParen));
+                toReturn.add(returnString);
             }
             currentIndex = closeParen + 1;
             System.out.println(currentIndex);
