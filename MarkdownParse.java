@@ -37,7 +37,7 @@ public class MarkdownParse {
                 toReturn.add(returnString);
             }
             currentIndex = closeParen + 1;
-            System.out.println(currentIndex);
+            //System.out.println(currentIndex);
         }
         return toReturn;
     }
